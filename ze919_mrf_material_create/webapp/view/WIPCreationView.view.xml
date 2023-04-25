@@ -1,0 +1,40 @@
+<mvc:View controllerName="ze919mrfmaterialcreate.ze919mrfmaterialcreate.controller.WIPCreationView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" >
+    <Page id="page" title="{i18n>title}">
+    
+     <Toolbar id = "_IDToolbar">
+      <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+      <Title id="_IDTitle" text="{i18n>XHED_WIPCreation}" level="H6" titleStyle="H2"/>
+      <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+     </Toolbar>
+
+    <!-- <VBox id="_IDVbox1">
+		<f:SimpleForm id = "_IdSm1" editable="true" layout="ResponsiveGridLayout">
+            <Label id = "IdLReq" text="{i18n>XLFD_Requestor}" ></Label>
+              <Input id = "IdIReq" width="25%" editable="false" value="{local>/MatCretion/Requestor}"></Input>
+            <Label id="IdLDat" text="{i18n>XLFD_Date}" ></Label>
+              <Input id="IdIDat" width="25%" editable="false" value="{local>/MatCretion/Erdat}"></Input>
+            <Label id="IdLRMat" text="{i18n>XLFD_RMat}" ></Label>
+              <ComboBox id="IdSRMat" width="25%" items="{local>/Quality}" >
+              <core:Item id="IdIRMat" key="{local>qur}" text="{local>qur}" > </core:Item>
+              </ComboBox>
+            <Label id="IdLRVendor" text="{i18n>XLFD_RVendor}" ></Label>
+              <ComboBox id="IdSRVendor" width="25%" items="{local>/Quality}" >
+              <core:Item id="IdIRVendor" key="{local>qur}" text="{local>qur}" > </core:Item>
+              </ComboBox>
+        </f:SimpleForm></VBox> -->
+
+    <core:Fragment fragmentName="ze919mrfmaterialcreate.ze919mrfmaterialcreate.fragments.MatCreation" type="XML" />
+
+    <footer>
+        <OverflowToolbar id = "_IDOTollbar" design="Info">
+         <ToolbarSpacer id="_IDGenToolbar3"/>
+          <Button id="_IDSubmit" text="{i18n>XBUT_Submit}" type="Emphasized" press="onSubmit" ></Button>
+          <Button id="_IDCancel" text="{i18n>XBUT_Cancel}" press="onCancel"></Button>
+        </OverflowToolbar>
+       </footer>
+
+       
+    </Page>
+</mvc:View>

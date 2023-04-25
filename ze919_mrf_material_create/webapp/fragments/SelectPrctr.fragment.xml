@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <!-- <SelectDialog id = "IdPrctrSelect" confirm = "onSelectPrctr" liveChange="onSearchPrctr"></SelectDialog> -->
+  <Dialog id = "IdPrctrSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdPrctrTable"
+		items="{
+			path: '/ProfitcenterSet',
+            filters : [
+                        { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                    ] 
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectPrctr" updateFinished="onPrctrCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdPrctrOverflow">
+         <content>
+          <Title id = "IdPrctrTitle" text="{i18n>XLFD_Pro_Ctrs}"></Title>
+          <ToolbarSpacer id="IdPrctrToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdPrctrSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchPrctr"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdPrctrC1">
+				<Text id="IdPrctrct1" text="{i18n>XLFD_Pro_Ctr}" />
+			</Column>
+			<Column id="IdPrctrC2">
+				<Text id="IdPrctrct2" text="{i18n>XLFD_Pro_Ctrt}" />
+			</Column>
+		
+		</columns>
+		<items>
+			<ColumnListItem id="IdPrctrCoList1" vAlign="Middle" >
+				<cells>
+					<Text id="IdPrctrt1" 
+						text="{Prctr}" />
+					<Text id="IdPrctrt2" 
+						text="{Ktext}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdPrctrCoseBut" text="Close" type="Reject" press="onPrctrClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

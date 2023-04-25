@@ -1,0 +1,212 @@
+{
+  "_version": "1.42.0",
+  "sap.app": {
+    "id": "ze919mrfmaterialcreate.ze919mrfmaterialcreate",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.7.4",
+      "toolsId": "82649bca-308d-4dce-bc88-4d3d77320859"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZMDME919_MRF_MATERIAL_CREATE_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+        
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.102.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ze919mrfmaterialcreate.ze919mrfmaterialcreate.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "local":{
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {},
+        "uri": "model/mockData/mrfCreate.json",
+        "preload": true
+    }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "ze919mrfmaterialcreate.ze919mrfmaterialcreate.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMainView",
+          "pattern": "",
+          "target": [
+            "TargetMainView"
+          ]
+        },
+        {
+            "name": "RouteFGCreate",
+            "pattern": "fgcrt",
+            "target": [
+              "TargetFGCreate"
+            ]
+          },
+          {
+            "name": "RouteWIPCreate",
+            "pattern": "wipcrt",
+            "target": [
+              "TargetWIPCreate"
+            ]
+          },
+          {
+            "name": "RouteINGCreate",
+            "pattern": "ingcrt",
+            "target": [
+              "TargetINGCreate"
+            ]
+          },
+          {
+            "name": "RoutePKGCCreate",
+            "pattern": "pkgccrt",
+            "target": [
+              "TargetPKGCCreate"
+            ]
+          },
+          {
+            "name": "RoutePKGLCreate",
+            "pattern": "pkglcrt",
+            "target": [
+              "TargetPKGLCreate"
+            ]
+          },
+          {
+            "name": "RouteMatExten",
+            "pattern": "matexten",
+            "target": [
+              "TargetMatExten"
+            ]
+          }
+      ],
+      "targets": {
+        "TargetMainView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "MainView",
+          "viewName": "MainView"
+        },
+        "TargetFGCreate": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "IdFGView",
+            "viewName": "FGCreationView"
+          },
+          "TargetWIPCreate": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "IdWIPView",
+            "viewName": "WIPCreationView"
+          },
+          "TargetINGCreate": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "IdINGView",
+            "viewName": "INGCreationView"
+          },
+          "TargetPKGCCreate": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "IdPKGCView",
+            "viewName": "PKGCCreationView"
+          },
+          "TargetPKGLCreate": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "IdPKGLView",
+            "viewName": "PKGLCreationView"
+          },
+          "TargetMatExten": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "IdMatextenView",
+            "viewName": "MatExtenView"
+          }
+      }
+    },
+    "rootView": {
+      "viewName": "ze919mrfmaterialcreate.ze919mrfmaterialcreate.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <!-- <SelectDialog id = "IdPrdhaSelect" confirm = "onSelectPrdha" liveChange="onSearchPrdha"></SelectDialog> -->
+   <Dialog id = "IdPrdhaSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdPrdhaTable"
+		items="{
+			path: '/ProducthierarchySet'
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectPrdha" updateFinished="onPrdhaCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdPrdhaOverflow">
+         <content>
+          <Title id = "IdPrdhaTitle" text="{i18n>XLFD_Prd_Hierarchy}"></Title>
+          <ToolbarSpacer id="IdPrdhaToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdPrdhaSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchPrdha"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdPrdhaC1">
+				<Text id="IdPrdhact1" text="{i18n>XLFD_Prd_Hierarchy}" />
+			</Column>
+			<Column id="IdPrdhaC2">
+				<Text id="IdPrdhact2" text="{i18n>XLFD_Prd_Hierar_dis}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id="IdPrdhaCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdPrdhat1" 
+						text="{Prodh}" />
+					<Text id="IdPrdhat2" 
+						text="{Vtext}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdPrdhaCoseBut" text="Close" type="Reject" press="onPrdhaClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

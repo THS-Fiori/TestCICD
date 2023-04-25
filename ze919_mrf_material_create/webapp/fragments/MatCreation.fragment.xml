@@ -1,0 +1,135 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+   
+   <VBox id="_IDVbox1">
+		<f:SimpleForm id = "_IdSm1" editable="true" layout="ResponsiveGridLayout">
+            <Label id = "IdLReq" text="{i18n>XLFD_Requestor}" ></Label>
+              <Input id = "IdIReq" width="25%" editable="false" value="{local>/MatCretion/Requestor}"></Input>
+            <Label id="IdLDat" text="{i18n>XLFD_Date}" ></Label>
+              <Input id="IdIDat" width="25%" editable="false" value="{local>/MatCretion/Erdat}"></Input>
+            <Label id="IdLRMat" text="{i18n>XLFD_RMat}" ></Label>
+              <ComboBox id="IdSRMat" width="25%" items="{local>/Quality}" >
+              <core:Item id="IdIRMat" key="{local>qur}" text="{local>qur}" > </core:Item>
+              </ComboBox>
+            <Label id="IdLRVendor" text="{i18n>XLFD_RVendor}" ></Label>
+              <ComboBox id="IdSRVendor" width="25%" items="{local>/Quality}" >
+              <core:Item id="IdIRVendor" key="{local>qur}" text="{local>qur}" > </core:Item>
+              </ComboBox>
+        </f:SimpleForm></VBox>
+
+   
+   <VBox id="_IDVboxf2" class="sapUiMediumMargin">
+		<f:SimpleForm id = "_IdSmf2" editable="true" >
+            <Label id="IdLMatNum" text="{i18n>XLFD_MatNum}"></Label>
+              <Input id="IdIMatNum" width="50%" value="{local>/MatCretion/Material}"
+                     submit = "onGetData"></Input>
+        </f:SimpleForm></VBox>
+   
+   <VBox id="_IDVboxf3" class="sapUiLargeMargin">
+		<f:SimpleForm id = "_IdSm3"
+			editable="true"
+            layout="ColumnLayout"
+            columnsM="2"
+			columnsL="2"
+			columnsXL="2">
+			
+		<f:content>
+               <!-- Plants -->
+              <Label id="IdLPl" text="{i18n>XLFD_Plant}" ></Label>
+               <Input id="IdIPl" width="75%" value="{local>/MatCretion/Werks}" 
+                   showValueHelp="true" valueHelpRequest="onHelpPl" ></Input>
+              <!-- Material Description -->
+              <Label id="IdLMatDes" text="{i18n>XLFD_MatDesc}" ></Label>
+              <Input id="IdIMatDes" width="75%" value="{local>/MatCretion/Maktx}"></Input>
+              <!-- Base Unit of Measure -->
+              <Label id="IdLBum" text="{i18n>XLFD_Bumes}" ></Label>
+              <Input id="IdIBum" width="75%" value="{local>/MatCretion/Uom}" 
+                   showValueHelp="true" valueHelpRequest="onHelpUom" ></Input>
+               <!-- Material Being Replaced -->
+              <Label id="IdLMatRep" text="{i18n>XLFD_MatRep}" ></Label>
+              <Input id="IdIMatRep" width="75%" value="{local>/MatCretion/Materialreplaced}" ></Input>
+              <!-- PDM Pkg Base Spec Number -->
+              <Label id="IdLPdmPkg" text="{i18n>XLFD_PDMPkg}" ></Label>
+              <Input id="IdIPdmPkg" width="75%" value="{local>/MatCretion/Pdmpkgmaterial}" ></Input> 
+                 <!-- Pkg Component Total -->
+              <Label id="IdLPkgTot" text="{i18n>XLFD_PkgTot}" ></Label>
+              <Input id="IdIPkgTot" width="75%" value="{local>/MatCretion/Pkgcomponentslef}" ></Input> 
+                <!-- Load Group -->
+              <Label id="IdLLoadgrp" text="{i18n>XLFD_Loadgrp}" ></Label>
+              <Input id="IdILoadgrp" width="75%" value="{local>/MatCretion/Loadinggroup}" 
+                   showValueHelp="true" valueHelpRequest="onHelpSapLoad" ></Input>
+              <!-- Related Finished Good Material  -->
+             <Label id="IdLRFgMat" text="{i18n>XLFD_RFgMat}" ></Label>
+              <Input id="IdIRFgMat" width="75%" value="{local>/MatCretion/Relatedmaterial}"></Input>
+              <!-- Vendor -->
+             <Label id="IdLVendor" text="{i18n>XLFD_Vendor}" ></Label>
+              <Input id="IdIVendor" width="75%" value="{local>/MatCretion/Lifnr}"></Input>
+              <!-- Vendor's Part Number -->
+              <Label id="IdLVPNum" text="{i18n>XLFD_VPNum}" ></Label>
+              <Input id="IdIVPNum" width="75%" value="{local>/MatCretion/Vendorpartno}"></Input>
+              <!-- Invoice Cost -->
+              <Label id="IdLInvoCost" text="{i18n>XLFD_InvoCost}" ></Label>
+              <Input id="IdIInvoCost" width="75%" value="{local>/MatCretion/Invoicecost}"></Input>
+              <!-- Frieght Cost (CAD/UOM) -->
+              <Label id="IdLFriCost" text="{i18n>XLFD_FriCost}" ></Label>
+              <Input id="IdIFriCost"  width="75%" value="{local>/MatCretion/Frieghtcost}"></Input>
+              <!-- Standard Cost (CAD/UOM) -->
+              <Label id="IdLStdCost" text="{i18n>XLFD_StdCost}" ></Label>
+              <Input id="IdIStdCost" width="75%" value="{local>/MatCretion/Stdcostcad}"></Input>  
+                   <!-- Quality Inspection Required?      -->
+              <Label id="IdLQIR" text="{i18n>XLFD_QIR}" ></Label>
+              <ComboBox id="IdSQIR" width="75%" items="{local>/Quality}" >
+              <core:Item id="IdIQIR" key="{local>qur}" text="{local>qur}" > </core:Item>
+              </ComboBox>
+
+
+              <!-- Arragment Division -->
+              <!-- Material Type -->
+              <Label id="IdLMatType" text="{i18n>XLFD_MatType}" ></Label>
+              <Input id="IdIMatType" width="75%" value="{local>/MatCretion/Mtart}" 
+                   showValueHelp="true" valueHelpRequest="onHelpMatType" ></Input>
+              <!-- Cust SKU for Cust-Owned Material -->
+              <Label id="IdLCoMat" text="{i18n>XLFD_CoMat}" ></Label>
+              <Input id="IdICoMat" width="75%" value="{local>/MatCretion/Custskumaterial}"></Input>
+              <!-- Material Group -->
+              <Label id="IdLMatGrp" text="{i18n>XLFD_MATGrp}"  ></Label>
+              <Input id="IdIMatGrp" width="75%" value="{local>/MatCretion/Matkl}" 
+                   showValueHelp="true" valueHelpRequest="onHelpMatGrp" ></Input>
+              <!-- Material Description for Material Being Replaced -->
+              <Label id="IdLMDMR" text="{i18n>XLFD_MDMR}" ></Label>
+              <Input id="IdIMDMR" width="75%" value="{local>/MatCretion/Materialreplacedname}"></Input>
+              <!-- Pkg Component Weight (lb) -->
+              <Label id="IdLPkgWeight" text="{i18n>XLFD_PkgWeight}" ></Label>
+              <Input id="IdIPkgWeight" width="75%" value="{local>/MatCretion/Pkgcomponentweight}" ></Input>
+              <!-- iSeries Item Class -->
+              <Label id="IdLitemClass" text="{i18n>XLFD_itemClass}" ></Label>
+              <Input id="IdIitemClass" width="75%" value="{local>/MatCretion/Iseriesitemclass}"></Input>
+              <!-- Profit Center -->
+              <Label id="IdLPrctr" text="{i18n>XLFD_Pro_Ctr}" ></Label>
+              <Input id="IdIPrctr" width="75%" value="{local>/MatCretion/Prctr}" 
+                   showValueHelp="true" valueHelpRequest="onHelpPrctr" ></Input>
+               <!-- Annual Volume -->
+              <Label id="IdLAnuVol" text="{i18n>XLFD_AnuVol}" ></Label>
+              <Input id="IdIAnuVol" width="75%" value="{local>/MatCretion/Annaulvolume}"></Input>
+              <!-- Vendor Name  -->
+              <Label id="IdLVName" text="{i18n>XLFD_VName}" ></Label>
+              <Input id="IdIVName" width="75%" value="{local>/MatCretion/Vendorname}"></Input>
+              <!-- Manufacturer's Name    -->
+              <Label id="IdLManName" text="{i18n>XLFD_ManName}" ></Label>
+              <Input id="IdIManName" width="75%" value="{local>/MatCretion/Manufacturersname}"></Input>
+              <!-- Cold Storage Cost -->
+              <Label id="IdLColdSto" text="{i18n>XLFD_ColdSto}" ></Label>
+              <Input id="IdIColdSto" width="75%" value="{local>/MatCretion/Coldstoragecost}"></Input>
+              <!-- Freight Cost (USD/UOM) -->
+              <Label id="IdLFreCost" text="{i18n>XLFD_FreCost}" ></Label>
+              <Input id="IdIFreCost" width="75%" value="{local>/MatCretion/Stdcostcad}"></Input>
+              <!-- Standard Cost (USD/UOM) -->
+              <Label id="IdLStdUsd" text="{i18n>XLFD_StdUsd}" ></Label>
+              <Input id="IdIStdUsd" width="75%" value="{local>/MatCretion/Stdcostusd}"></Input>
+
+			</f:content>
+		</f:SimpleForm>
+	   </VBox>
+
+</core:FragmentDefinition>

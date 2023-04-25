@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   
+   <Dialog id = "IdUomSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdUomTable"
+		items="{
+			path: '/UomSet',
+            filters : [
+                        { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                    ]            
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectUom" updateFinished="onUomCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdUomOverflow">
+         <content>
+          <Title id = "IdUomTitle" text="{i18n>XLFD_Base_UOM}"></Title>
+          <ToolbarSpacer id="IdUomToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdUomSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchUom"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdUomC1">
+				<Text id="IdUomct1" text="{i18n>XLFD_UOM}" />
+			</Column>
+			<Column id="IdUomC2">
+				<Text id="IdUomct2" text="{i18n>XLFD_UOMt}" />
+			</Column>
+		
+		</columns>
+		<items>
+			<ColumnListItem id="IdUomCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdUomt1" 
+						text="{Msehi}" />
+					<Text id="IdUomt2" 
+						text="{Msehl}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdUomCoseBut" text="Close" type="Reject" press="onUomClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

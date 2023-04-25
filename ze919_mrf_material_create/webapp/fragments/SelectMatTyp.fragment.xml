@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   
+   <Dialog id = "IdMatTypSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdMatTypTable"
+		items="{
+			path: '/MaterialtypeSet'
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectMatTyp" updateFinished="onMatTypCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdMatTypOverflow">
+         <content>
+          <Title id = "IdMatTypTitle" text="{i18n>XLFD_MatTypes}"></Title>
+          <ToolbarSpacer id="IdMatTypToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdMatTypSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchMatTyp"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdMatTypC1">
+				<Text id="IdMatTypct1" text="{i18n>XLFD_MatType}" />
+			</Column>
+			<Column id="IdMatTypC2">
+				<Text id="IdMatTypct2" text="{i18n>XLFD_Dis}" />
+			</Column>
+		
+		</columns>
+		<items>
+			<ColumnListItem id="IdMatTypCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdMatTypt1" 
+						text="{Mtart}" />
+					<Text id="IdMatTypt2" 
+						text="{Mtbez}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdMatTypCoseBut" text="Close" type="Reject" press="onMatTypClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

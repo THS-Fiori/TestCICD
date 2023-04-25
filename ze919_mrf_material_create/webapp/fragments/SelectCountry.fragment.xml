@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <!-- <SelectDialog id = "IdCoutSalSelect" confirm = "onSelectc" liveChange="onSearchCoutSal"></SelectDialog> -->
+    <Dialog id = "IdCoutSalSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdCoutSalTable"
+		items="{
+			path: '/CountrySet',
+            filters : [
+                        { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                    ]
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectCoutSal" updateFinished="onCoutSalCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdCoutSalOverflow">
+         <content>
+          <Title id = "IdCoutSalTitle" text="{i18n>XLFD_Countrys}"></Title>
+          <ToolbarSpacer id="IdCoutSalToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdCoutSalSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchCoutSal"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdCoutSalC1">
+				<Text id="IdCoutSalct1" text="{i18n>XLFD_Country}" />
+			</Column>
+			<Column id="IdCoutSalC2">
+				<Text id="IdCoutSalct2" text="{i18n>XLFD_Country_Name}" />
+			</Column>
+		
+		</columns>
+		<items>
+			<ColumnListItem id="IdCoutSalCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdCoutSalt1" 
+						text="{Land1}" />
+					<Text id="IdCoutSalt2" 
+						text="{Landx50}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdCoutSalCoseBut" text="Close" type="Reject" press="onCoutSalClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   
+   <Dialog id = "IdShLocSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdShLocTable"
+		items="{
+			path: '/PlantSet'
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange ="onSelectShLoc" updateFinished="onShLocCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdShLocOverflow">
+         <content>
+          <Title id = "IdShLocTitle" text="{i18n>XLFD_Plant}"></Title>
+          <ToolbarSpacer id="IdShLocToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdShLocSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchShLoc"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdShLocC1">
+				<Text id="IdShlocct1" text="{i18n>XLFD_Plan}" />
+			</Column>
+			<Column id="IdShLocC2">
+				<Text id="IdShlocct2" text="{i18n>XLFD_Plant_dis}" />
+			</Column>
+		
+		</columns>
+		<items>
+			<ColumnListItem id="IdShLocCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdShloct1" 
+						text="{Werks}" />
+					<Text id="IdShloct2" 
+						text="{Name1}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdShLocCoseBut" text="Close" type="Reject" press="onShLocClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

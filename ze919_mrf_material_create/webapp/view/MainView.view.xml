@@ -1,0 +1,94 @@
+<mvc:View controllerName="ze919mrfmaterialcreate.ze919mrfmaterialcreate.controller.MainView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+
+    
+     <Toolbar id = "_IDToolbar">
+      <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+      <Title id="_IDTitle" text="Material Request" level="H6" titleStyle="H2"/>
+      <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+     </Toolbar>
+
+
+ <VBox id="_IDGenVBox1" class="sapUiLargeMargin">
+		<f:Form id="idForm"
+			editable="true">
+			<f:layout>
+			<f:ResponsiveGridLayout id="_IDGenResponsiveGridLayout1"
+				labelSpanXL="4"
+			    labelSpanL="3"
+			    labelSpanM="4"
+			    labelSpanS="12"
+			    adjustLabelSpan="false"
+			    emptySpanXL="0"
+			    emptySpanL="4"
+			    emptySpanM="0"
+			    emptySpanS="0"
+			    columnsXL="2"
+			    columnsL="1"
+			    columnsM="1"
+					 />
+			</f:layout>
+			<f:formContainers>
+
+            <!-- Finished Good Creation  -->
+				<f:FormContainer id="_IDGenFormContainer1">
+					<f:formElements>
+						<f:FormElement id="_IDGenFormElement1">
+							<f:fields>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer3"/>
+								<Button id="_IDBFGCreation"  text="Finished Good Creation" width="100%" press="onFGCreation"></Button>
+							</f:fields>
+						</f:FormElement>
+
+            <!-- WIP Material Creation -->
+						<f:FormElement id="_IDGenFormElement2" >
+							<f:fields>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer4"/>
+								<Button id="_IDBWIPCreation"  text="WIP Creation" width="100%" press="onWIPCreation"></Button>
+							</f:fields>
+						</f:FormElement>
+
+            <!-- Ingredient Creation -->                        
+						<f:FormElement id="_IDGenFormElement3" >
+							<f:fields>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer5"/>
+								<Button id="_IDBINGCreation"  text="Ingredient Creation" width="100%" 
+                                         press="onINGCreation"></Button>
+							</f:fields>
+						</f:FormElement>
+                
+                <!-- PKG C and G Code Creation -->                
+						<f:FormElement id="_IDGenFormElement4" >
+							<f:fields>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer6"/>
+								<Button id="_IDBPKGCCreation"  text="PKG C and G Code Creation" width="100%" 
+                                    press="onPKGCGCreation"></Button>
+							</f:fields>
+						</f:FormElement>
+
+                    <!-- PKG L Code Creation     -->
+                        <f:FormElement id="_IDGenFormElement5" >
+							<f:fields>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer7"/>
+								<Button id="_IDBPKGLCreation"  text="PKG L Code Creation" width="100%" 
+                                    press="onPKGLCreation"></Button>
+							</f:fields>
+						</f:FormElement>
+
+                    <!-- Material Extention -->                        
+                        <f:FormElement id="_IDGenFormElement6" >
+							<f:fields>
+                            <ToolbarSpacer id="_IDGenToolbarSpacer8"/>
+								<Button id="_IDBMatCExten"  text="Material Extention" width="100%" 
+                                    press="onMatExten"></Button>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+    </Page>
+</mvc:View>

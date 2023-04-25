@@ -1,0 +1,9 @@
+<mvc:View controllerName="ze919mrfmaterialcreate.ze919mrfmaterialcreate.controller.Report"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+
+    
+     
+    </Page>
+</mvc:View>

@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <!-- <SelectDialog id = "IdManLocSelect" confirm = "onSelectManLoc" liveChange="onSearchManLoc"></SelectDialog> -->
+   <Dialog id = "IdManLocSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdManLocTable"
+		items="{
+			path: '/PlantSet'
+		}" mode="SingleSelectMaster" selectionChange="onSelectManLoc" updateFinished="onManLocCount" >
+     <headerToolbar >
+        <OverflowToolbar id ="IdManLocOverflow">
+         <content>
+          <Title id = "IdManLocTitle" text="{i18n>XLFD_Plant}"></Title>
+          <ToolbarSpacer id="IdManLocToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdManLocSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchManLoc"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdManLocC1">
+				<Text id="IdManLocct1" text="{i18n>XLFD_Plan}" />
+			</Column>
+			<Column id="IdManLocC2">
+				<Text id="IdManLocct2" text="{i18n>XLFD_Plant_dis}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id="IdManLocCoList1" vAlign="Middle" >
+				<cells>
+					<Text id="IdManLoct1" 
+						text="{Werks}" />
+					<Text id="IdManLoct2" 
+						text="{Name1}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdManLocCoseBut" text="Close" type="Reject" press="onManLocClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

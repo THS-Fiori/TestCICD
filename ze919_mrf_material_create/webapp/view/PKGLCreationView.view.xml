@@ -1,0 +1,21 @@
+<mvc:View controllerName="ze919mrfmaterialcreate.ze919mrfmaterialcreate.controller.PKGLCreationView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+     <Toolbar id = "_IDToolbar1">
+      <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+      <Title id="_IDTitle" text="{i18n>XHED_PKGLCreation}" level="H6" titleStyle="H2"/>
+      <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+     </Toolbar>
+
+    <core:Fragment fragmentName="ze919mrfmaterialcreate.ze919mrfmaterialcreate.fragments.MatCreation" type="XML" />
+
+    <footer>
+        <OverflowToolbar id = "_IDOTollbar4" design="Info">
+         <ToolbarSpacer id="_IDGenToolbar3"/>
+          <Button id="_IDSubmit" text="{i18n>XBUT_Submit}" type="Emphasized" press="onSubmit" ></Button>
+          <Button id="_IDCancel" text="{i18n>XBUT_Cancel}" press="onCancel"></Button>
+        </OverflowToolbar>
+    </footer>
+    </Page>
+</mvc:View>

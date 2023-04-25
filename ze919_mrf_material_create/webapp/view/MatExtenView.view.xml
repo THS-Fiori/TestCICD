@@ -1,0 +1,159 @@
+<mvc:View controllerName="ze919mrfmaterialcreate.ze919mrfmaterialcreate.controller.MatExtenView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout">
+    <Page id="page" title="{i18n>title}">
+     <Toolbar id = "_IDToolbar">
+      <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+      <Title id="_IDTitle" text= "{i18n>XHED_FGExt}" level="H6" titleStyle="H2"/>
+      <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+     </Toolbar>
+
+    <VBox id="_IDVbox1">
+		<f:SimpleForm id = "_IdSm1" editable="true" layout="ResponsiveGridLayout">
+            <Label id = "IdLReq" text="{i18n>XLFD_Requestor}" ></Label>
+              <Input id = "IdIReq" width="25%" editable="false" value="{local>/matExtenstion/Requestor}"></Input>
+            <Label id="IdLDat" text="{i18n>XLFD_Date}" ></Label>
+              <Input id="IdIDat" width="25%" editable="false" value="{local>/matExtenstion/Erdat}"></Input>
+            <Label id="IdLRMat" text="{i18n>XLFD_RMat}" ></Label>
+              <ComboBox id="IdSRMat" width="25%" items="{local>/Quality}" >
+              <core:Item id="IdIRMat" key="{local>qur}" text="{local>qur}" > </core:Item>
+              </ComboBox>
+            <Label id="IdLRVendor" text="{i18n>XLFD_RVendor}" ></Label>
+              <ComboBox id="IdSRVendor" width="25%" items="{local>/Quality}" >
+              <core:Item id="IdIRVendor" key="{local>qur}" text="{local>qur}" > </core:Item>
+              </ComboBox>        
+        </f:SimpleForm>
+    </VBox>
+    <VBox id="_IDVbox2" class="sapUiMediumMargin">
+		<f:SimpleForm id = "_IdSm2" editable="true" >
+            <Label id="IdLSAP" text="{i18n>XLFD_FGBMat}"></Label>
+              <Input id="IdISAP" width="50%" value="{local>/matExtenstion/Finishedmaterial}"
+                     submit = "onGetData"></Input>
+        </f:SimpleForm>
+    </VBox>
+
+    
+     <VBox id="_IDVbox3" class="sapUiLargeMargin">
+		<f:SimpleForm id = "_IdSm3"
+			editable="true"
+            layout="ColumnLayout"
+            columnsM="2"
+			columnsL="2"
+			columnsXL="2">
+			
+		<f:content>
+               <!-- Material Description -->
+              <Label id="IdLFGDesc" text="{i18n>XLFD_MatDesc}" ></Label>
+              <Input id="IdIFGDesc" width="75%" value="{local>/matExtenstion/Maktx}"></Input>
+               <!-- Profit Center -->
+              <Label id="IdLPrCtr" text="{i18n>XLFD_Pro_Ctr}" ></Label>
+              <Input id="IdIPrCtr" width="75%" value="{local>/matExtenstion/Prctr}" 
+                     showValueHelp="true" valueHelpRequest="onHelpPrctr"></Input>
+              <!-- FG Labeling Plant -->
+              <Label id="IdLFGLPlant" text="{i18n>XLFD_FGLPlant}" required="true" ></Label>
+              <Input id="IdIFGLPlant" width="75%" value="{local>/matExtenstion/Fglblplant}" 
+                   showValueHelp="true" valueHelpRequest="onHelpFGLPlant"></Input>
+               <!-- Procurement Type for Shipping Plant -->
+              <Label id="IdLPShPlant" text="{i18n>XLFD_PTSP}" ></Label>
+              <Input id="IdIPShPlant" width="75%" value="{local>/matExtenstion/Fgprodplant}" 
+                    showValueHelp="true" valueHelpRequest="onHelpFGLPlant"></Input>
+              <!-- Approved Price-->
+              <Label id="IdLAppPrice" text="{i18n>XLFD_AppPrice}" ></Label>
+              <Input id="IdIAppPrice" width="75%" value="{local>/matExtenstion/Finishedmaterial}" 
+                   ></Input>
+              
+              
+              <!-- Arragment Division -->
+              <!-- New Plant  -->
+              <Label id="IdLLNPlant" text="{i18n>XLFD_NPlant}" ></Label>
+              <Input id="IdLINPlant" width="75%" value="{local>/matExtenstion/Werks}"
+                     showValueHelp="true" valueHelpRequest="onHelpFGLPlant"></Input>
+              <!-- FG Producing Plant  -->
+              <Label id="IdLFGPlant" text="{i18n>XLFD_FGPrdPlant}" ></Label>
+              <Input id="IdIFGPlant" width="75%" value="{local>/matExtenstion/Fgprodplant}"
+                    showValueHelp="true" valueHelpRequest="onHelpFGLPlant"></Input>
+               <!-- Vendor or Source Plant -->
+              <Label id="IdLVSPlant" text="{i18n>XLFD_VSPlant}"></Label>
+              <Input id="IdIVSPlant" width="75%" value="{local>/matExtenstion/Lifnr}" 
+                   showValueHelp="true" valueHelpRequest="onHelpFGLPlant"></Input>
+               <!-- SAP Loading Group -->
+              <Label id="IdLLodGrp" text="{i18n>XLFD_SAP_Lod_Grp}" ></Label>
+              <Input id="IdILodGrp" width="75%" value="{local>/matExtenstion/Ladgr}"></Input>
+              
+			</f:content>
+		</f:SimpleForm>
+	   </VBox>
+    <Toolbar id = "_IDToolbart">
+      <ToolbarSpacer id="_IDGenToolbarSpacer3"/>
+      <Title id="_IDTitle2" text="{i18n>XHED_TAFor}" level="H6" titleStyle="H2"/>
+      <ToolbarSpacer id="_IDGenToolbarSpace2"/>
+     </Toolbar>
+
+    
+    <l:ResponsiveSplitter height="130%" id="IdResplit">
+		<l:PaneContainer id="IdpaneCont">
+		    <l:SplitPane id="IdSplit1" requiredParentWidth="100">
+                <Table id="IdTab1"
+                    items="{path: 'local>/Cmonths'}" width="80%">
+                    <headerToolbar >
+                        <OverflowToolbar id="Idovf1" style="Standard">
+                            <Title id="Idcfy" text="{i18n>XLFD_CFY}"/>
+                        </OverflowToolbar>
+                    </headerToolbar >
+                    <columns>
+                        <Column id="IdCC1">
+                            <Text id="Idct1" text="{i18n>XLFD_Months}" />
+                        </Column>
+                        <Column id="IdCC2">
+                            <Text id="Idct2" text="{i18n>XLFD_Forcast}" />
+                        </Column>	
+                    </columns>
+                    <items>
+                        <ColumnListItem id="IdCL1" vAlign="Middle"  >
+                            <cells>
+                                <Text id="IdCT1" text="{local>month}" />
+                                <Input id="IdCI1" value="{local>value}" type="Number" liveChange="onCMonth"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+             </l:SplitPane>
+			<l:SplitPane id="IdSplit2" requiredParentWidth="100">
+                <Table id="IdTab2"
+                    items="{path: 'local>/Nmonths'}" width="80%">
+                    <headerToolbar >
+                        <OverflowToolbar id="Idovf2" style="Standard">
+                            <Title id="Idnfy" text="{i18n>XLFD_NFY}"/>
+                        </OverflowToolbar> 
+                    </headerToolbar >
+                    <columns>
+                        <Column id="IdNC1">
+                            <Text id="Idnt1" text="{i18n>XLFD_Months}" />
+                        </Column>
+                        <Column id="IdNC2">
+                            <Text id="Idnt2" text="{i18n>XLFD_Forcast}" />
+                        </Column>	
+                    </columns>
+                    <items>
+                        <ColumnListItem id="IdNL1" vAlign="Middle"  >
+                            <cells>
+                                <Text id="IdNT1" text="{local>month}" />
+                                <Input id="IdNI1" value="{local>value}" type="Number" liveChange="onNMonth"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+             </l:SplitPane>
+		</l:PaneContainer>
+	</l:ResponsiveSplitter>
+    
+        <footer>
+            <OverflowToolbar id = "_IDOTollbar" design="Info">
+            <ToolbarSpacer id="_IDGenToolbar3"/>
+            <Button id="_IDSubmit" text="{i18n>XBUT_Submit}" type="Emphasized" press="onSubmit" ></Button>
+            <Button id="_IDCancel" text="{i18n>XBUT_Cancel}" press="onCancel"></Button>
+            </OverflowToolbar>
+       </footer>
+    </Page> 
+</mvc:View>

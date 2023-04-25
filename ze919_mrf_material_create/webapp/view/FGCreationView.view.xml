@@ -1,0 +1,386 @@
+<mvc:View controllerName="ze919mrfmaterialcreate.ze919mrfmaterialcreate.controller.FGCreationView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+ <Page id="page" title="{i18n>title}">
+     <Toolbar id = "_IDToolbar">
+      <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+      <Title id="_IDTitle" text= "{i18n>XHED_FGCreation}" level="H6" titleStyle="H2"/>
+      <ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+     </Toolbar>
+        
+    <VBox id="_IDVbox1">
+		<f:SimpleForm id = "_IdSm1" editable="true" layout="ResponsiveGridLayout">
+            <Label id = "IdLReq" text="{i18n>XLFD_Requestor}" ></Label>
+              <Input id = "IdIReq" width="25%" editable="false" value="{local>/MRFFGCreate/Requestor}"></Input>
+            <Label id="IdLDat" text="{i18n>XLFD_Date}" ></Label>
+              <Input id="IdIDat" width="25%" editable="false"  ></Input>
+            <Label id="IdLPrj" text="{i18n>XLFD_Proj_Cont}" ></Label>
+              <Input id="IdIPrj" width="25%" value="{local>/MRFFGCreate/Projectcontact}"></Input>
+        </f:SimpleForm></VBox>
+        
+        <VBox id="_IDVbox2" class="sapUiMediumMargin">
+		 <f:SimpleForm id = "_IdSm2" editable="true" >
+            <Label id="IdLSAP" text="{i18n>XLFD_THS_SAP_Code}"></Label>
+              <Input id="IdISAP" width="50%" value="{local>/MRFFGCreate/Thsmaterial}"
+                     submit = "onGetData" placeholder="Enter SAP Code"></Input>
+         </f:SimpleForm>
+        </VBox>
+        
+    <VBox id="_IDVbox3" class="sapUiLargeMargin">
+		<f:SimpleForm id = "_IdSm3"
+			editable="true"
+            layout="ColumnLayout"
+            columnsM="2"
+			columnsL="2"
+			columnsXL="2">
+			
+		<f:content>
+
+              <Label id="IdLFG" text="{i18n>XLFD_Legacy_FG}" ></Label>
+              <Input id="IdIFG" width="75%" value="{local>/MRFFGCreate/Legacymaterial}" placeholder="Enter Legacy FG"></Input>
+              <Label id="IdLFood" text="{i18n>XLFD_Legacy_Food}" ></Label>
+              <Input id="IdIFood" width="75%" value="{local>/MRFFGCreate/Containercode}" placeholder="Enter Code"></Input>
+
+                <!-- Select for UOM -->
+              <Label id="IdLUom" text="{i18n>XLFD_Base_UOM}" required="true" ></Label>
+              <Input id="IdIUom" width="75%" value="{local>/MRFFGCreate/Uom}" required="true"
+                   showValueHelp="true" valueHelpRequest="onHelpUom" placeholder="Enter UOM"
+                   showSuggestion="true" suggestionRows="{path: '/UomSet',
+                                                        filters : [
+                                                                    { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                                                                  ]}">
+                    <suggestionColumns>
+                        <Column id="idCoUOM1">
+                            <Label id="idCLaUOM1" text="{i18n>XLFD_UOM}" />
+                        </Column>
+                        <Column id="idCoUOM2"
+                            hAlign="Center">
+                            <Label id="idCLaUOM2" text="{i18n>XLFD_UOMt}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIUOM">
+                            <Label id="idCILaUOM1" text="{Msehi}" />
+                            <Label id="idCILaUOM2" text="{Msehl}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+              </Input>
+
+              <Label id="IdLSUom" text="{i18n>XLFD_Size_UOM}" required="true"></Label>
+              <Input id="IdISUom" width="75%" value="{local>/MRFFGCreate/Sizeuom}" required="true" placeholder="Enter Size UOM"></Input>
+              <!-- Select for Manufacturing Location -->
+              <Label id="IdLManLoc" text="{i18n>XLFD_Man_Loc}" required="true"></Label>
+              <Input id="IdIManLoc" width="75%" value="{local>/MRFFGCreate/Mfgloc}" required="true"
+                   showValueHelp="true" valueHelpRequest="onHelpManLoc" placeholder="Enter Manufacturing Location"
+                   showSuggestion="true" suggestionRows="{/PlantSet}">
+                    <suggestionColumns>
+                        <Column id="idCoMan1">
+                            <Label id="idCLaMan1" text="{i18n>XLFD_Plan}" />
+                        </Column>
+                        <Column id="idCoMan2"
+                            hAlign="Center">
+                            <Label id="idCLaMan2" text="{i18n>XLFD_Plant_dis}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIMan">
+                            <Label id="idCILaMan1" text="{Werks}" />
+                            <Label id="idCILaMan2" text="{Name1}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+              </Input>
+              
+                <!-- Select for Material Group -->        
+              <Label id="IdLMatGrp" text="{i18n>XLFD_SAP_Mat_Grp}" ></Label>
+              <Input id="IdIMatGrp" width="75%" value="{local>/MRFFGCreate/Matkl}" 
+                   showValueHelp="true" valueHelpRequest="onHelpMatGrp" placeholder="Enter Material Group"
+                   showSuggestion="true" suggestionRows="{path: '/MaterialgroupSet',
+                                                        filters : [
+                                                                    { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                                                                  ]}">
+                    <suggestionColumns>
+                        <Column id="idCoMatGrp1">
+                            <Label id="idCLaMatGrp1" text="{i18n>XLFD_Mat_Grp}" />
+                        </Column>
+                        <Column id="idCoMatGrp2"
+                            hAlign="Center">
+                            <Label id="idCLaMatGrp2" text="{i18n>XLFD_Mat_Grpt}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIMatGrp">
+                            <Label id="idCILaMatGrp1" text="{Matkl}" />
+                            <Label id="idCILaMatGrp2" text="{Wgbez}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+              </Input>
+                    
+
+              <Label id="IdLBVF" text="{i18n>XLFD_BVF}" ></Label>
+              <Input id="IdIBVF" width="75%" value="{local>/MRFFGCreate/Bvf}" placeholder="Enter BVF"></Input>
+                <!-- Select for Proprietary Formula -->
+              <Label id="IdLProFor" text="{i18n>XLFD_Pr_For}" ></Label>
+              <Input id="IdIProFor" width="75%" value="{local>/MRFFGCreate/Proprietaryformula}" 
+                   showValueHelp="true" valueHelpRequest="onHelpProFor" placeholder="Enter Proprietary Formula"
+                   showSuggestion="true" suggestionRows="{/ProprietarySet}">
+                    <suggestionColumns>
+                        <Column id="idCoProFor1">
+                            <Label id="idCLaProFor1" text="{i18n>XLFD_Pr_For}" />
+                        </Column>
+                        <Column id="idCoProFor2"
+                            hAlign="Center">
+                            <Label id="idCLaProFor2" text="{i18n>XLFD_Dis}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIProFor">
+                            <Label id="idCILaProFor1" text="{Zzrecipeind}" />
+                            <Label id="idCILaProFor2" text="{Ddtext}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+              </Input>
+              
+              <Label id="IdLWipMin" text="{i18n>XLFD_WIP_Min}" ></Label>
+              <Input id="IdIWipMin" width="75%" value="{local>/MRFFGCreate/Wipremshelflife}" 
+                                    placeholder="Enter WIP"></Input>
+                <!-- Select for Product Hierarchy -->
+              <Label id="IdLPrdHir" text="{i18n>XLFD_Prd_Hierarchy}" ></Label>
+              <Input id="IdIPrdHir" width="75%" value="{local>/MRFFGCreate/Prodh}"
+                   showValueHelp="true" valueHelpRequest="onHelpPrdha" placeholder="Enter Product Hierarchy"
+                   showSuggestion="true" suggestionRows="{/ProducthierarchySet}">
+                    <suggestionColumns>
+                        <Column id="idCoPrdHir1">
+                            <Label id="idCLaPrdHir1" text="{i18n>XLFD_Prd_Hierarchy}" />
+                        </Column>
+                        <Column id="idCoPrdHir2"
+                            hAlign="Center">
+                            <Label id="idCLaPrdHir2" text="{i18n>XLFD_Prd_Hierar_dis}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIPrdHir">
+                            <Label id="idCILaPrdHir1" text="{Prodh}" />
+                            <Label id="idCILaPrdHir2" text="{Vtext}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+                </Input>
+
+              <Label id="IdLGTIN" text="{i18n>XLFD_GTIN}" ></Label>
+              <Input id="IdIGTIN" width="75%" value="{local>/MRFFGCreate/Gtin}" placeholder="Enter GTIN"></Input>
+              <Label id="IdLGrossWt" text="{i18n>XLFD_Gross_Wt}" ></Label>
+              <Input id="IdIGrossWt" width="75%" value="{local>/MRFFGCreate/Brgew}" placeholder="Enter Gross Wt(KG)"></Input>
+              <!-- Select for SAP Loading Group -->
+              <Label id="IdLSapLoad" text="{i18n>XLFD_SAP_Lod_Grp}" ></Label>
+              <Input id="IdISapLoad" width="75%" value="{local>/MRFFGCreate/Ladgr}" 
+                   showValueHelp="true" valueHelpRequest="onHelpSapLoad" placeholder="Enter Loading Group"
+                   showSuggestion="true" suggestionRows="{path: '/LoadinggroupSet',
+                                                        filters : [
+                                                                    { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                                                                  ]}">
+                    <suggestionColumns>
+                        <Column id="idCoSapLoad1">
+                            <Label id="idCLaSapLoad1" text="{i18n>XLFD_SAP_Lod_Grp}" />
+                        </Column>
+                        <Column id="idCoSapLoad2"
+                            hAlign="Center">
+                            <Label id="idCLaSapLoad2" text="{i18n>XLFD_SAP_Lod_Grp_disc}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColISapLoad">
+                            <Label id="idCILaSapLoad1" text="{Ladgr}" />
+                            <Label id="idCILaSapLoad2" text="{Vtext}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+            </Input>
+
+              <Label id="IdLCases" text="{i18n>XLFD_Cases_Pallet}" ></Label>
+              <Input id="IdICases" width="75%" value="{local>/MRFFGCreate/Casespallet}" placeholder="Enter Cases OR Pallet"></Input>
+                 <!-- Select for Organic/GMO  -->
+              <Label id="IdLOrg" text="{i18n>XLFD_Organic_GMO}" ></Label>
+              <Input id="IdIOrg" width="75%" value="{local>/MRFFGCreate/Zzorganic}" 
+                   showValueHelp="true" valueHelpRequest="onHelpOGMI" placeholder="Enter Organic/GMO"
+                   showSuggestion="true" suggestionRows="{/OrganicindSet}">
+                    <suggestionColumns>
+                        <Column id="idCoOGMI1">
+                            <Label id="idCLaOGMI1" text="{i18n>XLFD_Organic_GMO}" />
+                        </Column>
+                        <Column id="idCoOGMI2"
+                            hAlign="Center">
+                            <Label id="idCLaOGMI2" text="{i18n>XLFD_Dis}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIOGMI">
+                            <Label id="idCILaOGMI1" text="{Zzorganic}" />
+                            <Label id="idCILaOGMI2" text="{Ddtext}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+               </Input>
+              
+              <Label id="IdLFGMin" text="{i18n>XLFD_FG_Min_Life}" ></Label>
+              <Input id="IdIFGMin" width="75%" value="{local>/MRFFGCreate/Fgremshelflife}" placeholder="Enter Days"></Input>
+              <Label id="IdLCustTar" text="{i18n>XLFD_Cust_Trafic}" ></Label>
+              <Input id="IdICustTar" width="75%" value="{local>/MRFFGCreate/Customtariffcode}" placeholder="Enter Tariff Code"></Input>
+              <!-- Country -->
+              <Label id="IdLCoutSal" text="{i18n>XLFD_Country_Sale}" ></Label>
+              <Input id="IdICoutSal" width="75%" value="{local>/MRFFGCreate/Land1}" 
+                     showValueHelp="true" valueHelpRequest="onHelpCoutSal" placeholder="Enter Tariff Code"
+                     showSuggestion="true" suggestionRows="{path: '/CountrySet',
+                                                        filters : [
+                                                                    { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                                                                  ]}">
+                    <suggestionColumns>
+                        <Column id="idCoCoutSal1">
+                            <Label id="idCLaCoutSal1" text="{i18n>XLFD_Country}" />
+                        </Column>
+                        <Column id="idCoCoutSal2"
+                            hAlign="Center">
+                            <Label id="idCLaCoutSal2" text="{i18n>XLFD_Country_Name}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColICoutSal">
+                            <Label id="idCILaCoutSal1" text="{Land1}" />
+                            <Label id="idCILaCoutSal2" text="{Landx50}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+            </Input>
+              <Label id="IdLExtMate" text="{i18n>XLFD_Exit_Mat}" ></Label>
+              <Input id="IdIExtMate" width="75%" value="{local>/MRFFGCreate/Existmaterial}" placeholder="Enter Material"></Input>
+
+              <!-- Arragment Division -->
+              <Label id="IdLLbname" text="{i18n>XLFD_Label_Name}" ></Label>
+              <Input id="IdLIbname" width="75%" value="{local>/MRFFGCreate/Maktx}" placeholder="Enter Label Name"></Input>
+              <Label id="IdLCustSku" text="{i18n>XLFD_Customer_SKU}" ></Label>
+              <Input id="IdICustSku" width="75%" value="{local>/MRFFGCreate/Custmaterial}" placeholder="Enter Material"></Input>
+              <Label id="IdLPack" text="{i18n>XLFD_Pack_Size}" required="true" ></Label>
+              <Input id="IdIPack" width="75%" value="{local>/MRFFGCreate/Packsize}" required="true" placeholder="Enter Pack / Size"></Input>
+              <Label id="IdLFGMatDes" text="{i18n>XLFD_FG_Mat_Des}" required="true"></Label>
+              <Input id="IdIFGMatDes" width="75%" value="{local>/MRFFGCreate/Finishedesc}" required="true" placeholder="Enter Material Description"></Input>
+              <!-- Shiping Location -->
+              <Label id="IdLShiLoc" text="{i18n>XLFD_Ship_Loc}" ></Label>
+              <Input id="IdIShLoc" width="75%" value="{local>/MRFFGCreate/Shiploc}" 
+                   showValueHelp="true" valueHelpRequest="onHelpShLoc" placeholder="Enter Shipping Location" 
+                   showSuggestion="true" suggestionRows="{/PlantSet}">
+                    <suggestionColumns>
+                        <Column id="idCoShi1">
+                            <Label id="idCLaShi1" text="{i18n>XLFD_Plan}" />
+                        </Column>
+                        <Column id="idCoShi2"
+                            hAlign="Center">
+                            <Label id="idCLaShi2" text="{i18n>XLFD_Plant_dis}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIShi">
+                            <Label id="idCILaShi1" text="{Werks}" />
+                            <Label id="idCILaShi2" text="{Name1}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+              </Input>
+              
+              <Label id="IdLWipcode" text="{i18n>XLFD_WIP_Code}" ></Label>
+              <Input id="IdIWipcode" width="75%" value="{local>/MRFFGCreate/Wipcode}" placeholder="Enter WIP Code"></Input>
+              <Label id="IdLWipDisc" text="{i18n>XLFD_WIP_Desc}" ></Label>
+              <Input id="IdIWipDisc" width="75%" value="{local>/MRFFGCreate/Wipdescription}" placeholder="Enter WIP Description"></Input>
+              <Label id="IdLWipShelf" text="{i18n>XLFD_WIP_Shelf_Life}" ></Label>
+              <Input id="IdIWipShelf" width="75%" value="{local>/MRFFGCreate/Wipshelflife}" placeholder="Enter WIP Shelf Life"></Input>
+              <!-- Select for Profit Center -->
+              <Label id="IdLPro" text="{i18n>XLFD_Pro_Ctr}" ></Label>
+              <Input id="IdIPro" width="75%" value="{local>/MRFFGCreate/Prctr}" 
+                   showValueHelp="true" valueHelpRequest="onHelpPrctr" placeholder="Enter Profit Center"
+                   showSuggestion="true" suggestionRows="{path: '/ProfitcenterSet',
+                                                        filters : [
+                                                                    { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                                                                  ]}">
+                    <suggestionColumns>
+                        <Column id="idCoPro1">
+                            <Label id="idCLaPro1" text="{i18n>XLFD_Pro_Ctr}" />
+                        </Column>
+                        <Column id="idCoPro2"
+                            hAlign="Center">
+                            <Label id="idCLaPro2" text="{i18n>XLFD_Pro_Ctrt}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIPro">
+                            <Label id="idCILaPro1" text="{Prctr}" />
+                            <Label id="idCILaPro2" text="{Ktext}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+              </Input>
+
+              <!-- Select for SAP Division -->
+              <Label id="IdLSAPDiv" text="{i18n>XLFD_SAP_Div}" ></Label>
+              <Input id="IdISAPDiv" width="75%" value="{local>/MRFFGCreate/Spart}" 
+                   showValueHelp="true" valueHelpRequest="onHelpSdiv" placeholder="Enter SAP Division"
+                   showSuggestion="true" suggestionRows="{path: '/DivisionSet',
+                                                        filters : [
+                                                                    { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                                                                  ]}">
+                    <suggestionColumns>
+                        <Column id="idCoSAPDiv1">
+                            <Label id="idCLaSAPDiv1" text="{i18n>XLFD_SAP_Div}" />
+                        </Column>
+                        <Column id="idCoSAPDiv2"
+                            hAlign="Center">
+                            <Label id="idCLaSAPDiv2" text="{i18n>XLFD_SAP_DivDisc}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColISAPDiv">
+                            <Label id="idCILaSAPDiv1" text="{Spart}" />
+                            <Label id="idCILaSAPDiv2" text="{Vtext}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+           </Input>
+
+              <Label id="IdLEachUpc" text="{i18n>XLFD_Each_UPC}" ></Label>
+              <Input id="IdIEachUpc"  width="75%" value="{local>/MRFFGCreate/Upc}" placeholder="Enter UPC"></Input>
+              <Label id="IdLNetWt" text="{i18n>XLFD_Net_Wt}" ></Label>
+              <Input id="IdINetWt" width="75%" value="{local>/MRFFGCreate/Ntgew}" placeholder="Enter Net Wt(KG)"></Input>
+              <Label id="IdLCaseDim" text="{i18n>XLFD_Case_Dime}" ></Label>
+              <Input id="IdICaseDim" width="75%" value="{local>/MRFFGCreate/Casedimensions}" placeholder="Enter Case Dimensions"></Input>
+              
+              <Label id="IdLPall" text="{i18n>XLFD_Pallet_Ti}" ></Label>
+              <Input id="IdIPall" width="75%" value="{local>/MRFFGCreate/Pallettihi}" placeholder="Enter Pallet Ti"></Input>
+              <Label id="IdLFGTot" text="{i18n>XLFD_FG_Tot_shel}" ></Label>
+              <Input id="IdIFGTot" width="75%" value="{local>/MRFFGCreate/Fgtotalselflife}" placeholder="Enter days"></Input>
+              <Label id="IdLIncDays" text="{i18n>XLFD_Inc_Days}" ></Label>
+              <Input id="IdIIncDays" width="75%" value="{local>/MRFFGCreate/Incubationdays}" placeholder="Enter Incubation Days"></Input>
+              <Label id="IdLItemNote" text="{i18n>XLFD_Item_Notes}" ></Label>
+              <Input id="IdIItemNote" width="75%" value="{local>/MRFFGCreate/Itemnotes}" placeholder="Enter Item Notes"></Input>
+              <Label id="IdLDpCat" text="{i18n>XLFD_DP_Cat}" ></Label>
+              <Input id="IdIDpCat" width="75%" value="{local>/MRFFGCreate/Dpcategory}" placeholder="Enter DP Category"
+               showValueHelp="true" valueHelpRequest="onHelpDpcat" 
+                   showSuggestion="true" suggestionRows="{/DpcategorySet}">
+                    <suggestionColumns>
+                        <Column id="idCoDpcat1">
+                            <Label id="idCLaDpcat1" text="{i18n>XLFD_DP_Cat}" />
+                        </Column>
+                        <Column id="idCoDpcat2"
+                            hAlign="Center">
+                            <Label id="idCLaDpcat2" text="{i18n>XLFD_DP_Cat_dis}" />
+                        </Column>
+                    </suggestionColumns>
+                    <suggestionRows>
+                        <ColumnListItem id="idColIDpcat">
+                            <Label id="idCILaDpcat1" text="{Zzdpcategory}" />
+                            <Label id="idCILaDpcat2" text="{Zzdpcatdesc}" />
+                        </ColumnListItem>
+			        </suggestionRows>
+              </Input>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+       <footer>
+        <OverflowToolbar id = "_IDOTollbar" design="Info">
+         <ToolbarSpacer id="_IDGenToolbar3"/>
+          <Button id="_IDSave"   text="{i18n>XBUT_Save}" type="Emphasized" press="onSubmit" ></Button>
+          <Button id="_IDSubmit" text="{i18n>XBUT_Submit}" type="Emphasized" press="onSubmit" ></Button>
+          <Button id="_IDCancel" text="{i18n>XBUT_Cancel}" press="onCancel"></Button>
+        </OverflowToolbar>
+       </footer>
+   </Page>
+</mvc:View>

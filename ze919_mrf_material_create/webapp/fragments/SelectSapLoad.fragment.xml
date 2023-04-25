@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <!-- <SelectDialog id = "IdSapLoadSelect" confirm = "onSelectSapLoad" liveChange="onSearchSapLoad"></SelectDialog> -->
+   <Dialog id = "IdSapLoadSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdSapLoadTable"
+		items="{
+			path: '/LoadinggroupSet',
+            filters : [
+                        { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                      ]
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectSapLoad" updateFinished="onSapLoadCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdSapLoadOverflow">
+         <content>
+          <Title id = "IdSapLoadTitle" text="{i18n>XLFD_SAP_Lod_Grp}"></Title>
+          <ToolbarSpacer id="IdSapLoadToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdSapLoadSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchSapLoad"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdSapLoadC1">
+				<Text id="IdSapLoadct1" text="{i18n>XLFD_SAP_Lod_Grp}" />
+			</Column>
+			<Column id="IdSapLoadC2">
+				<Text id="IdSapLoadct2" text="{i18n>XLFD_SAP_Lod_Grp_disc}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id="IdSapLoadCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdSapLoadt1" 
+						text="{Ladgr}" />
+					<Text id="IdSapLoadt2" 
+						text="{Vtext}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdSapLoadCoseBut" text="Close" type="Reject" press="onSapLoadClose"></Button>
+    </endButton>
+   </Dialog>
+
+</core:FragmentDefinition>

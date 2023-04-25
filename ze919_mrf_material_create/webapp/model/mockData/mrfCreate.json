@@ -1,0 +1,255 @@
+{
+    "MRFFGCreate":
+    { 
+            "ReqNum": "",
+            "MrfType":"",
+            "Submitflag":"",
+            "Projectcontact":"",
+            "Thsmaterial" : "",
+            "Legacymaterial" : "",
+            "Maktx" : "",
+            "Containercode" : "",
+            "Custmaterial" : "",
+            "Uom" : "",
+            "Packsize" : "",
+            "Sizeuom" : "",
+            "Finishedesc" : "",
+            "Mfgloc" : "",
+            "Shiploc" : "",
+            "Matkl" : "",
+            "Wipcode" : "",
+            "Bvf" : "",
+            "Wipdescription" : "",
+            "Proprietaryformula" : "",
+            "Wipshelflife" : "0",
+            "Wipremshelflife" : "0",
+            "Prctr" : "",
+            "Prodh" : "",
+            "Spart" : "",
+            "Gtin" : "",
+            "Upc" : "",
+            "Brgew" : "0",
+            "Ntgew" : "0",
+            "Ladgr" : "",
+            "Casedimensions" : "",
+            "Casespallet": "",
+            "Pallettihi" : "",
+            "Zzorganic" : "",
+            "Fgtotalselflife" : "0",
+            "Fgremshelflife" : "0",
+            "Incubationdays" : "0",
+            "Customtariffcode" : "",
+            "Itemnotes" : "",
+            "Land1" : "",
+            "Dpcategory" : "",
+            "Existmaterial" : "",
+            "Requestor" : ""
+    },
+    "MatCretion":{
+        "Requestor":"",
+        "Erdat":"",
+        "Erzet":"",
+        "Replacingmaterial":"",
+        "Replacingvendor":"",
+        "Werks":"",
+        "Mtart":"",
+        "Material":"",
+        "Maktx":"",
+        "Custskumaterial":"",
+        "Uom":"",
+        "Matkl":"",
+        "Materialreplaced":"",
+        "Materialreplacedname":"",
+        "Pdmpkgmaterial":"",
+        "Pkgcomponentweight":"",
+        "Pkgcomponentslef":"",
+        "Iseriesitemclass":"",
+        "Loadinggroup":"",
+        "Prctr":"",   
+        "Relatedmaterial":"",
+        "Annaulvolume":"",
+        "Lifnr":"",
+        "Vendorname":"", 
+        "Vendorpartno":"", 
+        "Manufacturersname":"",
+        "Invoicecost":"",
+        "Coldstoragecost":"",
+        "Frieghtcost":"",
+        "Stdcostcad":"",
+        "Stdcostusd":"",
+        "Qainspectionrequired":""
+    },
+    "matExtenstion":{
+        "Finishedmaterial" : "",
+        "Maktx" : "",
+        "Werks" : "",
+        "Prctr" : "",
+        "Fgprodplant" : "",
+        "Fglblplant" : "",
+        "Lifnr" : "",
+        "Beskz" : "",
+        "Ladgr" : "",
+        "Approvedprice" : "",
+        "Cjan" : "",
+        "Cfeb" : "",
+        "Cmar" : "",
+        "Capr" : "",
+        "Cmay" : "",
+        "Cjun" : "",
+        "Cjul" : "",
+        "Caug" : "",
+        "Csep" : "",
+        "Coct" : "",
+        "Cnov" : "",
+        "Cdec" : "",
+        "Ctotal" : "",
+        "Njan" : "",
+        "Nfeb" : "",
+        "Nmar" : "",
+        "Napr" : "",
+        "Nmay" : "",
+        "Njun" : "",
+        "Njul" : "",
+        "Naug" : "",
+        "Nsep" : "",
+        "Noct" : "",
+        "Nnov" : "",
+        "Ndec" : "",
+        "Ntotal" : "",
+        "Requestor" : "",
+        "Custsoldto" : "",
+        "Custshipto" : "",
+        "Proposedshipdate" : "",
+        "Erzet": ""
+    },
+
+    "Quality":[
+        {
+            "qur" :"Yes"
+        },
+        {
+            "qur" : "No"
+        }
+    ],
+     "Cmonths":[
+         {
+           "month":"Jan",
+           "value":""
+         },
+         {
+            "month":"Feb",
+            "value":""
+        },
+        {
+            "month":"Mar",
+            "value":""
+        },
+        {
+            "month":"Apr",
+            "value":""
+        },
+        {
+            "month":"May",
+            "value":""
+        },
+        {
+            "month":"Jun",
+            "value":""
+        },
+        {
+            "month":"July",
+            "value":""
+        },
+        {
+            "month":"Aug",
+            "value":""
+        },
+        {
+            "month":"Sep",
+            "value":""
+        },
+        {
+            "month":"Oct",
+            "value":""
+        },
+        {
+            "month":"Nov",
+            "value":""
+        },
+        {
+            "month":"Dec",
+            "value":""
+        },
+        {
+            "month":"Total",
+            "value":""
+        }
+
+    ],    
+    "Nmonths":[
+        {
+          "month":"Jan",
+          "value":""
+        },
+        {
+           "month":"Feb",
+           "value":""
+       },
+       {
+           "month":"Mar",
+           "value":""
+       },
+       {
+           "month":"Apr",
+           "value":""
+       },
+       {
+           "month":"May",
+           "value":""
+       },
+       {
+           "month":"Jun",
+           "value":""
+       },
+       {
+           "month":"July",
+           "value":""
+       },
+       {
+           "month":"Aug",
+           "value":""
+       },
+       {
+           "month":"Sep",
+           "value":""
+       },
+       {
+           "month":"Oct",
+           "value":""
+       },
+       {
+           "month":"Nov",
+           "value":""
+       },
+       {
+           "month":"Dec",
+           "value":""
+       },
+       {
+        "month":"Total",
+        "value":""
+       }
+
+   ],
+    "test":[
+        {
+            "unit": "KG"
+        },
+        {
+            "unit": "CS"
+        },
+        {
+            "unit": "KM"
+        }
+    ]
+}

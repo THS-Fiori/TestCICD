@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   
+   <Dialog id = "IdDpcatSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdDpcatTable"
+		items="{
+			path: '/DpcategorySet'
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange ="onSelectDpcat" updateFinished="onDpcatCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdDpcatOverflow">
+         <content>
+          <Title id = "IdDpcatTitle" text="{i18n>XLFD_DP_Cat}"></Title>
+          <ToolbarSpacer id="IdDpcatToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdDpcatSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchDpcat"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdDpcatC1">
+				<Text id="IdDpcatct1" text="{i18n>XLFD_DP_Cat}" />
+			</Column>
+			<Column id="IdDpcatC2">
+				<Text id="IdDpcatct2" text="{i18n>XLFD_DP_Cat_dis}" />
+			</Column>
+		
+		</columns>
+		<items>
+			<ColumnListItem id="IdDpcatCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdDpcatt1" 
+						text="{Zzdpcategory}" />
+					<Text id="IdDpcatt2" 
+						text="{Zzdpcatdesc}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdDpcatCoseBut" text="Close" type="Reject" press="onDpcatClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

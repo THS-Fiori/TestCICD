@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <!-- <SelectDialog id = "IdOGMISelect" confirm = "onSelectOGMI" liveChange="onSearchOGMI"></SelectDialog> -->
+   <Dialog id = "IdOGMISelect"  contentWidth="50%">
+    <content>
+      <Table id="IdOGMITable"
+		items="{
+			path: '/OrganicindSet'
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectOGMI" updateFinished="onOGMICount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdOGMIOverflow">
+         <content>
+          <Title id = "IdOGMITitle" text="{i18n>XLFD_Organic_GMO}"></Title>
+          <ToolbarSpacer id="IdOGMIToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdOGMISearch" placeholder="Search Hear" width="50%" liveChange = "onSearchOGMI"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdOGMIC1">
+				<Text id="IdOGMIct1" text="{i18n>XLFD_Organic_GMO}" />
+			</Column>
+			<Column id="IdOGMIC2">
+				<Text id="IdOGMIct2" text="{i18n>XLFD_Dis}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id="IdOGMICoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdOGMIt1" 
+						text="{Zzorganic}" />
+					<Text id="IdOGMIt2" 
+						text="{Ddtext}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdOGMICoseBut" text="Close" type="Reject" press="onOGMIClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

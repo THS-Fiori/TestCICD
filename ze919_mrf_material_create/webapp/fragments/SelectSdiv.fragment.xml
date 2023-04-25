@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <!-- <SelectDialog id = "IdSdivSelect" confirm = "onSelectSdiv" liveChange="onSearchSdiv"></SelectDialog> -->
+    <Dialog id = "IdSdivSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdSdivTable"
+		items="{
+			path: '/DivisionSet',
+            filters : [
+                        { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                        ]            
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectSdiv" updateFinished="onSdivCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdSdivOverflow">
+         <content>
+          <Title id = "IdSdivTitle" text="{i18n>XLFD_SAP_Div}"></Title>
+          <ToolbarSpacer id="IdSdivToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdSdivSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchSdiv"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdSdivC1">
+				<Text id="IdSdivct1" text="{i18n>XLFD_SAP_Div}" />
+			</Column>
+			<Column id="IdSdivC2">
+				<Text id="IdSdivct2" text="{i18n>XLFD_SAP_DivDisc}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id="IdSdivCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdSdivt1" 
+						text="{Spart}" />
+					<Text id="IdSdivt2" 
+						text="{Vtext}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdSdivCoseBut" text="Close" type="Reject" press="onSdivClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

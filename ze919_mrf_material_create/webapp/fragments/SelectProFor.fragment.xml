@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <!-- <SelectDialog id = "IdProForSelect" confirm = "onSelectProFor" liveChange="onSearchProFor"></SelectDialog> -->
+<Dialog id = "IdProForSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdProForTable"
+		items="{
+			path: '/ProprietarySet'
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectProFor" updateFinished="onProForCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdProForOverflow">
+         <content>
+          <Title id = "IdProForTitle" text="{i18n>XLFD_Pr_For}"></Title>
+          <ToolbarSpacer id="IdProForToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdProForSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchProFor"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdProForC1">
+				<Text id="IdProForct1" text="{i18n>XLFD_Pr_For}" />
+			</Column>
+			<Column id="IdProForC2">
+				<Text id="IdProForct2" text="{i18n>XLFD_Dis}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id="IdProForCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdProFort1" 
+						text="{Zzrecipeind}" />
+					<Text id="IdProFort2" 
+						text="{Ddtext}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdProForCoseBut" text="Close" type="Reject" press="onProForClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+   <!-- <SelectDialog id = "IdMatGrpSelect" confirm = "onSelectMatGrp" liveChange="onSearchMatGrp"></SelectDialog> -->
+    <Dialog id = "IdMatGrpSelect"  contentWidth="50%">
+    <content>
+      <Table id="IdMatGrpTable"
+		items="{
+			path: '/MaterialgroupSet',
+            filters : [
+                        { path : 'Spras', operator : 'EQ', value1 : 'EN'}
+                    ] 
+		}" sticky="HeaderToolbar" mode="SingleSelectMaster" selectionChange="onSelectMatGrp" updateFinished="onMatGrpCount">
+     <headerToolbar >
+        <OverflowToolbar id ="IdMatGrpOverflow">
+         <content>
+          <Title id = "IdMatGrpTitle" text="{i18n>XLFD_SAP_Mat_Grp}"></Title>
+          <ToolbarSpacer id="IdMatGrpToolSpacer1" ></ToolbarSpacer>
+          <SearchField id="IdMatGrpSearch" placeholder="Search Hear" width="50%" liveChange = "onSearchMatGrp"/>
+         </content>
+        </OverflowToolbar>
+        
+     </headerToolbar>
+		<columns>
+			<Column id="IdMatGrpC1">
+				<Text id="IdMatGrpct1" text="{i18n>XLFD_Mat_Grp}" />
+			</Column>
+			<Column id="IdMatGrpC2">
+				<Text id="IdMatGrpct2" text="{i18n>XLFD_Mat_Grpt}" />
+			</Column>
+		
+		</columns>
+		<items>
+			<ColumnListItem id="IdMatGrpCoList1" vAlign="Middle"  >
+				<cells>
+					<Text id="IdMatGrpt1" 
+						text="{Matkl}" />
+					<Text id="IdMatGrpt2" 
+						text="{Wgbez}" />
+			    </cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    </content>
+    <endButton>
+    <Button id="IdMatGrpCoseBut" text="Close" type="Reject" press="onMatGrpClose"></Button>
+    </endButton>
+   </Dialog>
+</core:FragmentDefinition>
